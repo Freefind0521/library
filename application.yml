@@ -2,4 +2,4 @@ server:
   port: 8080
 
 app:
-  max-borrow-days: 60
+  max-borrow-days: 14     # 冲突解决：王芳要 14 天，张伟写 60 天 → 取线上 14 天
