@@ -3,3 +3,4 @@ server:
 
 app:
   max-borrow-days: 14     # 冲突解决：王芳要 14 天，张伟写 60 天 → 取线上 14 天
+  return-reminder-days: 3 # 到期前 3 天推送还书提醒

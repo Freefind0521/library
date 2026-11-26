@@ -12,11 +12,18 @@ public class ReturnService {
     }
 
     public void giveBack(String sid, String isbn) {
-        if (!records.containsKey(sid)) {
+        String borrowedIsbn = records.get(sid);
+        if (borrowedIsbn == null) {
             throw new IllegalStateException("没有借阅记录");
         }
-        records.remove(sid);
+        if (!borrowedIsbn.equals(isbn)) {
+            throw new IllegalStateException("借阅记录与所还图书不一致");
+        }
         Book book = books.get(isbn);
+        if (book == null) {
+            throw new IllegalStateException("书不存在");
+        }
+        records.remove(sid);
         book.setStock(book.getStock() + 1);
     }
 }
